@@ -1,5 +1,8 @@
 <script>
+import BaseInput from './BaseInput';
+
 export default {
+  extends: BaseInput,
   name: 'JDropdown',
   inheritAttrs: false,
   props: {
