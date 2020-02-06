@@ -1,9 +1,9 @@
 <script>
 import JCheckboxList from './components/JCheckboxList';
-import JDropdown from './components/JDropdown';
 import JEmail from './components/JEmail';
 import JPhone from './components/JPhone';
 import JRadioList from './components/JRadioList';
+import JSelect from './components/JSelect';
 import JText from './components/JText';
 import JTextList from './components/JTextList';
 
@@ -11,10 +11,10 @@ export default {
   name: 'App',
   components: {
     JCheckboxList,
-    JDropdown,
     JEmail,
     JPhone,
     JRadioList,
+    JSelect,
     JText,
     JTextList,
   },
@@ -34,20 +34,20 @@ export default {
         work: 'Work',
         mobile: 'Mobile',
       },
-      hobbies: [],
+      hobbies: ['ski'],
       hobbyOptions: {
         snwb: 'Snowboarding',
         ski: 'Skiing',
         clmb: 'Climbing',
         hkng: 'Hiking',
       },
-      gender: '',
+      gender: 'male',
       genderOptions: {
         male: 'Male',
         female: 'Female',
         other: 'Other',
       },
-      car: '',
+      car: 'gm',
       carOptions: {
         ford: 'Ford',
         gm: 'General Motors',
@@ -67,7 +67,7 @@ export default {
     <div><j-text v-model="text" descriptor="Text"></j-text></div>
     <div><j-checkbox-list :options="hobbyOptions" v-model="hobbies" group="hobbies"></j-checkbox-list></div>
     <div><j-radio-list :options="genderOptions" v-model="gender" group="gender"></j-radio-list></div>
-    <div><j-text-list :options="phoneOptions" v-model="phones" :type="JPhone"></j-text-list></div>
-    <div><j-dropdown :options="carOptions" v-model="car" group="car"></j-dropdown></div>
+    <div><j-text-list :options="phoneOptions" v-model="phones" group="phones" :type="JPhone"></j-text-list></div>
+    <div><j-select :options="carOptions" v-model="car" group="car"></j-select></div>
   </div>
 </template>

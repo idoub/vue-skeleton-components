@@ -2,15 +2,15 @@
 import BaseInput from './BaseInput';
 
 export default {
+  name: 'JCheckbox',
   extends: BaseInput,
   inheritAttrs: false,
-  name: 'JCheckbox',
 }
 </script>
 
 <template>
-  <label>
-    <span>
+  <label class="checkbox-wrapper">
+    <span class="checkbox-label">
       <slot name="label">
         <span>{{ descriptor }}</span>
       </slot>
@@ -18,9 +18,8 @@ export default {
     <input
       type="checkbox"
       :value="value"
-      @change="change"
-      @focus="focus"
-      class="input-checkbox"
+      @change="$emit('input', $event.target.value)"
+      class="checkbox"
       v-bind="$attrs"
     />
   </label>

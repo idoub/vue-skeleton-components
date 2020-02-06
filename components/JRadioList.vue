@@ -1,20 +1,14 @@
 <script>
+import BaseList from './BaseList';
 import JRadio from './JRadio';
 
 export default {
   name: 'JRadioList',
+  extends: BaseList,
   components: {
     JRadio,
   },
   props: {
-    group: {
-      type: String,
-      default: () => Math.random(),
-    },
-    options: {
-      type: Object,
-      default: () => ({}),
-    },
     value: {
       type: String,
       default: '',
@@ -24,7 +18,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="radio-list">
     <j-radio
       :descriptor="descriptor"
       :key="key"
@@ -32,6 +26,7 @@ export default {
       @input="$emit('input', $event)"
       :name="group"
       v-for="(descriptor, key) in options"
+      :checked="value===key"
     ></j-radio>
   </div>
 </template>

@@ -1,13 +1,11 @@
 <script>
+import BaseList from './BaseList';
 import JText from './JText';
 
 export default {
   name: 'JTextList',
+  extends: BaseList,
   props: {
-    options: {
-      type: Object,
-      default: () => ({}),
-    },
     type: {
       type: Object,
       default: () => (JText),
@@ -17,22 +15,22 @@ export default {
       default: () => ({}),
     },
   },
+  data() {
+    return {
+      localVal: this.value,
+    };
+  },
   methods: {
     input(key, newVal) {
       this.localVal[key] = newVal;
       this.$emit('input', this.localVal);
     },
   },
-  data() {
-    return {
-      localVal: this.value,
-    };
-  },
 }
 </script>
 
 <template>
-  <div>
+  <div class="text-input-list">
     <component
       :descriptor="descriptor"
       :is="type"

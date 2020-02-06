@@ -2,15 +2,15 @@
 import BaseInput from './BaseInput';
 
 export default {
+  name: 'JRadio',
   extends: BaseInput,
   inheritAttrs: false,
-  name: 'JRadio',
 }
 </script>
 
 <template>
-  <label>
-    <span>
+  <label class="radio-wrapper">
+    <span class="radio-label">
       <slot name="label">
         <span>{{ descriptor }}</span>
       </slot>
@@ -18,9 +18,8 @@ export default {
     <input
       type="radio"
       :value="value"
-      @change="change"
-      @focus="focus"
-      class="input-radio"
+      @change="$emit('input', $event.target.value)"
+      class="radio"
       v-bind="$attrs"
     />
   </label>

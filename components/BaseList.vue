@@ -1,15 +1,15 @@
 <!-- This component is meant to be extended, not use as a component -->
 <script>
 export default {
-  name: 'BaseInput',
+  name: 'BaseList',
   props: {
-    descriptor: {
+    group: {
       type: String,
-      default: '',
+      required: true,
     },
-    value: {
-      type: String,
-      default: '',
+    options: {
+      type: Object,
+      default: () => ({}),
     },
   },
 }

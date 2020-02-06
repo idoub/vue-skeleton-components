@@ -1,19 +1,10 @@
 <script>
-import BaseInput from './BaseInput';
+import BaseList from './BaseList';
 
 export default {
-  extends: BaseInput,
-  name: 'JDropdown',
-  inheritAttrs: false,
+  name: 'JSelect',
+  extends: BaseList,
   props: {
-    group: {
-      type: String,
-      required: true,
-    },
-    options: {
-      type: Object,
-      default: () => ({}),
-    },
     value: {
       type: String,
       default: '',
@@ -24,14 +15,16 @@ export default {
 
 <template>
   <select
+    class="dropdown"
     :name="group"
     @change="$emit('input', $event.target.value)"
-    v-bind="$attrs"
   >
     <option
+      class="dropdown-option"
       :key="key"
       :value="key"
       v-for="(descriptor, key) in options"
+      :selected="value===key"
     >{{ descriptor }}</option>
   </select>
 </template>
