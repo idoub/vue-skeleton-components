@@ -12,8 +12,8 @@ export default {
       default: () => Math.random(),
     },
     options: {
-      type: Array,
-      default: () => ([]),
+      type: Object,
+      default: () => ({}),
     },
     value: {
       type: String,
@@ -26,12 +26,12 @@ export default {
 <template>
   <div>
     <j-radio
-      :descriptor="option.descriptor"
-      :key="option.key"
-      :value="option.key"
+      :descriptor="descriptor"
+      :key="key"
+      :value="key"
       @input="$emit('input', $event)"
       :name="group"
-      v-for="(option) in options"
+      v-for="(descriptor, key) in options"
     ></j-radio>
   </div>
 </template>

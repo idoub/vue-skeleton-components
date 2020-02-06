@@ -9,11 +9,11 @@ export default {
   props: {
     group: {
       type: String,
-      default: () => Math.random(),
+      required: true,
     },
     options: {
-      type: Array,
-      default: () => ([]),
+      type: Object,
+      default: () => ({}),
     },
     value: {
       type: Array,
@@ -37,12 +37,12 @@ export default {
 <template>
   <div>
     <j-checkbox
-      :descriptor="option.descriptor"
-      :key="option.key"
-      :value="option.key"
+      :descriptor="descriptor"
+      :key="key"
+      :value="key"
       @input="input"
       :name="group"
-      v-for="(option) in options"
+      v-for="(descriptor, key) in options"
     ></j-checkbox>
   </div>
 </template>

@@ -5,8 +5,8 @@ export default {
   name: 'JTextList',
   props: {
     options: {
-      type: Array,
-      default: () => ([]),
+      type: Object,
+      default: () => ({}),
     },
     type: {
       type: Object,
@@ -18,28 +18,28 @@ export default {
     },
   },
   methods: {
-    input(key, newValue) {
-      this.value[key] = newValue;
-      this.$emit('input', this.value);
+    input(key, newVal) {
+      this.localVal[key] = newVal;
+      this.$emit('input', this.localVal);
     },
   },
-  computed: {
-    localValue() {
-      return this.value;
-    }
-  }
+  data() {
+    return {
+      localVal: this.value,
+    };
+  },
 }
 </script>
 
 <template>
   <div>
     <component
+      :descriptor="descriptor"
       :is="type"
-      v-for="(option, index) in options"
-      :key="index"
-      :descriptor="option.descriptor"
-      :value="localValue[option.key]"
-      @input="(newVal) => input(option.key, newVal)"
+      :key="key"
+      :value="localVal[key]"
+      @input="(newVal) => input(key, newVal)"
+      v-for="(descriptor, key) in options"
     ></component>
   </div>
 </template>

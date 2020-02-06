@@ -1,5 +1,6 @@
 <script>
 import JCheckboxList from './components/JCheckboxList';
+import JDropdown from './components/JDropdown';
 import JEmail from './components/JEmail';
 import JPhone from './components/JPhone';
 import JRadioList from './components/JRadioList';
@@ -10,6 +11,7 @@ export default {
   name: 'App',
   components: {
     JCheckboxList,
+    JDropdown,
     JEmail,
     JPhone,
     JRadioList,
@@ -27,55 +29,33 @@ export default {
         work: '',
         mobile: '',
       },
-      phoneOptions: [
-        {
-          descriptor: 'Home',
-          key: 'home',
-        },
-        {
-          descriptor: 'Work',
-          key: 'work',
-        },
-        {
-          descriptor: 'Mobile',
-          key: 'mobile',
-        },
-      ],
+      phoneOptions: {
+        home: 'Home',
+        work: 'Work',
+        mobile: 'Mobile',
+      },
       hobbies: [],
-      hobbyOptions: [
-        {
-          descriptor: 'Snowboarding',
-          key: 'snwb',
-        },
-        {
-          descriptor: 'Skiing',
-          key: 'ski',
-        },
-        {
-          descriptor: 'Climbing',
-          key: 'clmb',
-        },
-        {
-          descriptor: 'Hiking',
-          key: 'hkng',
-        },
-      ],
+      hobbyOptions: {
+        snwb: 'Snowboarding',
+        ski: 'Skiing',
+        clmb: 'Climbing',
+        hkng: 'Hiking',
+      },
       gender: '',
-      genderOptions: [
-        {
-          descriptor: 'Male',
-          key: 'male',
-        },
-        {
-          descriptor: 'Female',
-          key: 'female',
-        },
-        {
-          descriptor: 'Other',
-          key: 'other',
-        },
-      ],
-    }
+      genderOptions: {
+        male: 'Male',
+        female: 'Female',
+        other: 'Other',
+      },
+      car: '',
+      carOptions: {
+        ford: 'Ford',
+        gm: 'General Motors',
+        toyota: 'Toyota',
+        honda: 'Honda',
+        hyundai: 'Hyundai',
+      },
+    };
   },
 }
 </script>
@@ -88,5 +68,6 @@ export default {
     <div><j-checkbox-list :options="hobbyOptions" v-model="hobbies" group="hobbies"></j-checkbox-list></div>
     <div><j-radio-list :options="genderOptions" v-model="gender" group="gender"></j-radio-list></div>
     <div><j-text-list :options="phoneOptions" v-model="phones" :type="JPhone"></j-text-list></div>
+    <div><j-dropdown :options="carOptions" v-model="car" group="car"></j-dropdown></div>
   </div>
 </template>
