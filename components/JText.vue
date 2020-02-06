@@ -1,5 +1,5 @@
 <script>
-import BaseTextInput from './BaseTextInput';
+import BaseTextInput from './base/BaseTextInput';
 
 export default {
   name: 'JText',

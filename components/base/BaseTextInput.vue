@@ -1,7 +1,7 @@
 <!-- This component is meant to be extended, not use as a component -->
 <script>
 import BaseInput from './BaseInput';
-import ValidResp from '../util/validators/ValidationResponse';
+import ValidResp from '../../util/validators/ValidationResponse';
 
 export default {
   name: 'BaseTextInput',

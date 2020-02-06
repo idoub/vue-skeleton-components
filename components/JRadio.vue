@@ -1,5 +1,5 @@
 <script>
-import BaseInput from './BaseInput';
+import BaseInput from './base/BaseInput';
 
 export default {
   name: 'JRadio',

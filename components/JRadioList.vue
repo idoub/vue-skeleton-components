@@ -1,5 +1,5 @@
 <script>
-import BaseList from './BaseList';
+import BaseList from './base/BaseList';
 import JRadio from './JRadio';
 
 export default {
